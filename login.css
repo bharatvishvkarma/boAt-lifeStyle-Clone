@@ -64,7 +64,7 @@ body{
     margin-right: 40px;
 }
 #login{
-    margin-top: 30px;
+    margin-top: 15px;
     border: 2px solid white;
 }
 #container{
@@ -130,3 +130,88 @@ margin-top: 20px;
 margin-bottom: 40px;
 }
 
+
+#footer1{
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+}
+#footer1 p{
+font-size: 13px;
+color: rgb(158, 157, 157);
+}
+
+.vLine{
+border: 1px solid rgb(230, 230, 230);;
+width: 0px;
+margin-top: 10px;
+margin-bottom: 30px;
+}
+.oddL{
+margin-top: 50px;
+margin-bottom: 120px;
+margin-right: -40px;
+}
+.oddL2{
+margin-top: 50px;
+margin-bottom: 180px;
+margin-right: -40px; 
+}
+
+.socialMedia{
+display: flex;
+gap: 30px;
+font-size: 25px;
+}
+.playStore{
+display: flex;
+}
+.extra{
+display: flex;
+gap: 600px;
+}
+.extra h3{
+margin-bottom: 10px;
+}
+.line+p{
+margin-top: 30px;
+margin-bottom: 30px;
+}
+.emailSubmit{
+border: 1px solid red;
+padding: 6px;
+border-radius: 6px;
+display: flex;
+justify-content: space-between;
+}
+.emailSubmit>button{
+border: none;
+border-radius: 6px;
+color: white;
+font-size: 17px;
+padding: 10px 25px;
+background-color: rgb(220, 24, 37);
+}
+.emailSubmit>input{
+border: none;
+box-sizing: border-box;
+width: 100%;
+}
+
+
+#instruction{
+width: 100%;
+margin: auto;
+height: 70px;
+color: white;
+background-color: black;
+text-align: center;
+}
+#instruction >p{
+width: 60%;
+margin: auto;
+padding: 20px;
+font-size: 14px;
+align-items: center;
+
+}

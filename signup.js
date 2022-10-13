@@ -1,4 +1,19 @@
-document.querySelector("form").addEventListener("submit" ,create)
+function displayData(){
+    var keep = document.querySelector(".curser")
+    keep.style.display = "grid";
+    keep.style.background = "white";
+    document.querySelector(".mouse").addEventListener("mouseleave",removeData)
+  }
+  document.querySelector(".mouse").addEventListener("mouseover",displayData)
+  
+  function removeData(){
+    var keep = document.querySelector(".curser")
+    keep.style.display = "none";
+  }
+  document.querySelector(".mouse").addEventListener("mouseleave",removeData)
+
+
+  document.querySelector("form").addEventListener("submit" ,create)
 
 let userData=JSON.parse(localStorage.getItem("userobj")) || []
 
@@ -11,9 +26,9 @@ function create(){
     var flag=true;
     userData.map(function (el) {
         if(el.email==userobj.email){
-            console.log("email")
+            console.log("an");
             flag=false;
-            alert(" Account already exists")
+            alert("Account already exists")
         }
     });
     if(flag){
@@ -27,3 +42,4 @@ function create(){
     document.getElementById("email").value=""
     document.getElementById("password").value=""
 }
+

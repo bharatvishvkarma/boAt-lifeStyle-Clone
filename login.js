@@ -33,7 +33,7 @@ function loginfun(){
         }
     });
     if(validuser){
-        alert("Login successful")
+        alert("Login successfully")
         location.href=""
     }
     else if(usernotallowed){
