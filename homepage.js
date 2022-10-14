@@ -119,7 +119,7 @@ var bestSeller =
     var keep = document.querySelector(".curser")
     keep.style.display = "grid";
     keep.style.background = "white";
-    document.querySelector(".mouse").addEventListener("mouseleave",removeData)
+    document.querySelector("body").addEventListener("mouseleave",removeData)
   }
   document.querySelector(".mouse").addEventListener("mouseover",displayData)
   
@@ -127,7 +127,7 @@ var bestSeller =
     var keep = document.querySelector(".curser")
     keep.style.display = "none";
   }
-  document.querySelector(".mouse").addEventListener("mouseleave",removeData)
+  document.querySelector("body").addEventListener("mouseleave",removeData)
   
   
     
@@ -156,6 +156,8 @@ var bestSeller =
             btn.innerText = "ADD TO CART"
 
             btn.setAttribute("class","addtoCart")
+
+            btn.addEventListener("click",function() { addtocart1(i) })
 
             var line = document.createElement("div")
             line.setAttribute("class","line")
@@ -213,6 +215,8 @@ var bestSeller =
             var btn = document.createElement("button")
             btn.innerText = "ADD TO CART"
 
+            btn.addEventListener("click",function() {addtocart1(i)})
+
             btn.setAttribute("class","addtoCart")
 
             var line = document.createElement("div")
@@ -245,6 +249,84 @@ var bestSeller =
             div.setAttribute("id","sailBoat")
         })
     }
+
+    var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+    var items =  cartItems.length
+    console.log(items)
+    if(items>0){
+      document.querySelector(".nitems").innerText = items
+    }
+
+    var cartProducts = JSON.parse(localStorage.getItem("cart")) || []
+        
+    function addtocart1(index){
+        event.preventDefault()
+        alert("This Product is added to Cart")
+        var flag = 0
+        var ind  = 0
+        var prod = sailBoat.filter(function(elem,i){
+            return i == index
+        })
+        var cartp = cartProducts.filter(function(elem,i){
+            if(elem.name === prod[0].name){
+                flag = 1
+                ind = i
+            }
+        })
+        if(flag == 0){
+            prod[0].qty = 1
+            cartProducts.push(prod[0])
+        }
+        else{
+            cartProducts[ind].qty++
+            flag = 0
+        }
+        
+        localStorage.setItem("cart",JSON.stringify(cartProducts))
+        console.log(cartProducts)
+
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+        var items =  cartItems.length
+        console.log(items)
+        if(items>0){
+        document.querySelector(".nitems").innerText = items
+        }
+    }
+
+    function addtocart1(index){
+      event.preventDefault()
+      alert("This Product is added to Cart")
+      var flag = 0
+      var ind  = 0
+      var prod = bestSeller.filter(function(elem,i){
+          return i == index
+      })
+      var cartp = cartProducts.filter(function(elem,i){
+          if(elem.name === prod[0].name){
+              flag = 1
+              ind = i
+          }
+      })
+      if(flag == 0){
+          prod[0].qty = 1
+          cartProducts.push(prod[0])
+      }
+      else{
+          cartProducts[ind].qty++
+          flag = 0
+      }
+      
+      localStorage.setItem("cart",JSON.stringify(cartProducts))
+      console.log(cartProducts)
+
+      var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+      var items =  cartItems.length
+      console.log(items)
+      if(items>0){
+      document.querySelector(".nitems").innerText = items
+      }
+  }
+    
 
   
   const sliders = document.querySelectorAll(".slider");

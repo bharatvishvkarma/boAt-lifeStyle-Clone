@@ -93,32 +93,34 @@
     
      #cart{
       display: flex;
-      justify-content: space-around;
-      margin-left: 120px;
-      width: 45%;
-      background-color: rgb(94, 2, 20);
-      padding: 20px;
-      color: white;
+      /* justify-content: space-around; */
+      gap: 150px;
+      width: 40%;
+      background-color: white;
+      padding: 10px;
+      padding-left: 70px;
       border-radius: 10px;
       border: 3px solid rgb(1, 1, 70);
       box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+      margin: 20px 30px;
+      margin-left: 120px;
+      align-items: center;
      }
 
-     #main{
-      display: flex;
-      justify-content: space-between;
-      margin-top: 220px;
+     #parent{
+      margin-top: 200px;
      }
 
      .smallSection{
       display: flex;
       gap: 60px;
-      width: 25%;
+      width: 30%;
       background-color: white;
       box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
       border-radius: 15px;
       padding: 25px;
       position: fixed;
+      top: 200px;
       left: 970px;
       
      }
@@ -128,7 +130,59 @@
       box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
      }
 
+     .quantDiv{
+      display: flex;
+      width: 170px;
+      justify-content: space-between;
+     }
+     .quantDiv>button{
+      border: none;
+      padding: 0px 25px;
+      background-color: black;
+      color: white  ;
+      border-radius: 30px;
+      cursor: pointer;
+     }
+     .quantDiv>h3{
+      color: red;
 
+     }
+     
+     .rmvBtn{
+      border: none;
+      background-color: black;
+      margin: auto;
+      color:white;
+      border-radius: 4px;
+      padding: 6px 36px;
+      margin-top: 10px;
+      cursor: pointer;
+     }
+
+     .five{
+      position: fixed;
+      padding: 20px 35px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      background-color: black;
+      top:  500px;
+      left: 970px;
+      font-size: 23px;
+      font-weight: bolder;
+      cursor: pointer;
+     }
+     
+
+     /* <!-- <div  id="cart">
+        <div class="one"><img src="" alt=""></div>
+        <div class="two">
+          <h2>Rockerz 245 V2</h2>
+          <p>Price: 100</p>
+          <p>+ quantity -</p>
+          <button>REMOVE</button>
+        </div>
+       --> */
 
 
 </style>
@@ -201,41 +255,33 @@
         </div>
       
       
-      </div>
+    </div>
       <div class="cartItem">
-        <h1>Your Items in the Cart</h1>
-      </div>
-      <div id="main" >
-      <div  id="cart">
-        <div><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/R245v2-fi-2.4_300x.jpg?v=1655442439" alt=""></div>
-        <div>
-          <h2>Rockerz 245 V2</h2>
-          <p>Price: 100</p>
-          <p>+ quantity -</p>
-          <button>REMOVE</button>
-        </div>
-      </div>
-      <div class="smallSection">
-        <div>
-          <h2>Price Details</h2>
-          <p>Price (4 items):</p>
-          <p>Discount</p>
-          <p>Delivery Charges</p>
-          <h3>Total Amount</h3>
-        </div>
-        <div>
-          <br>
-          <br>
-          <br>
-          <p>₹22,000</p>
-          <p>₹22,000</p>
-          <p>FREE</p>
-          <p>1110</p>
-        </div> 
+        <h1 class="discription">Your Items in the Cart</h1>
       </div>
       
+        <div id="parent"></div>
+        
+        </div>
+    <div class="smallSection">
+      <div >
+        <h2>Price Details</h2>
+        <p class="totalItems"></p>
+        <p>Discount</p>
+        <p>Delivery Charges</p>
+        <h3>Total Amount (in Rs.)</h3>
+      </div>
+      <div>
+        <br>
+        <br>
+        <br>
+        <p class="totalAmount"></p>
+        <p class="discount"></p>
+        <p class="charges" style="color: green;">FREE</p>
+        <p class="pay" style="font-weight: bold;"></p>
+      </div> 
     </div>
-    <button>Place Order</button>
+    <button class="five">Proceed to Pay</button>
     
 </body>
 </html>
@@ -254,4 +300,134 @@
     keep.style.display = "none";
   }
   document.querySelector(".mouse").addEventListener("mouseleave",removeData)
+
+  var product = JSON.parse(localStorage.getItem("cart")) || []
+  check()
+
+  function check(){
+    if(product.length === 0)
+    {
+      document.querySelector(".discription").innerText = "Your Cart is Empty. Add some items to cart"
+      displayprod()
+      document.querySelector(".totalItems").innerText =  "Price"
+      document.querySelector(".totalAmount").innerText = 0
+      document.querySelector(".discount").innerText = 0
+      document.querySelector(".pay").innerText = 0
+      document.querySelector(".charges").innerText = "0"
+      document.querySelector(".five").innerHTML = ""
+      document.querySelector(".five").style.background = "white"
+      document.querySelector(".five").style.border = "none"
+
+    }
+    else{
+      displayprod()
+      calculateTotal()
+    }
+  }
+
+
+
+ console.log(product)
+    function displayprod(){
+        document.getElementById("parent").innerText = ""
+        product.map(function(elem,i){
+            
+            var div = document.createElement("div")
+            
+            var image = document.createElement("img")
+            image.setAttribute("src",elem.image_url)
+
+            var name = document.createElement("h2")
+            name.innerText = elem.name
+
+            var price = document.createElement("p")
+            price.innerText = "Price: ₹ "+ elem.price
+
+            var quant = document.createElement("h3")
+            quant.innerText = elem.qty
+
+            var plus = document.createElement("button")
+            plus.innerHTML = '<i class="fa-solid fa-plus"></i>'
+
+            var minus = document.createElement("button")
+            minus.innerHTML = '<i class="fa-solid fa-minus"></i>'
+
+            var btn = document.createElement("button")
+            btn.innerText = "Remove Product"
+            btn.setAttribute("class","rmvBtn")
+
+            quantdiv = document.createElement("div")
+            quantdiv.setAttribute("class","quantDiv")
+            quantdiv.append(plus,quant,minus)
+
+            var cartp = document.createElement("div")
+            cartp.setAttribute("id","cart")
+
+            var div2 = document.createElement("div")
+            div.append(image)
+            div2.append(name,price,quantdiv,btn)
+            cartp.append(div,div2)
+
+            document.getElementById("parent").append(cartp)
+
+            plus.addEventListener("click",function(){addItem(i)})
+            minus.addEventListener("click",function(){substractItem(i)})
+            btn.addEventListener("click",function(){deleterow(i)})
+
+        })
+    }
+
+    function calculateTotal(){
+        
+        var total = product.reduce(function(acc,elem){
+            return acc + +(elem.strikedoffprice*elem.qty)
+        },0)
+
+        var totalPrice = product.reduce(function(acc,elem){
+            return acc + +(elem.price*elem.qty)
+        },0)
+
+        var discount = +total - +totalPrice
+        var saving = parseInt((discount/total)*100)
+        console.log(saving)
+        var tQuantity = product.length
+
+        document.querySelector(".totalItems").innerText = "Price(" + +tQuantity + " items)"
+
+        document.querySelector(".totalAmount").innerText = total
+
+        document.querySelector(".discount").innerText = +discount + " (you save: " + saving + "%)"
+
+        document.querySelector(".pay").innerText = totalPrice
+    }
+
+    function substractItem(index){
+      if(product[index].qty>1){
+        product[index].qty--
+        localStorage.setItem("cart",JSON.stringify(product))
+        // document.getElementsByClassName(".pay").innerText = ""
+        // document.querySelector(".totalItems").innerText = ""
+        check()
+      }
+    }
+
+    function addItem(index){
+        product[index].qty++
+        localStorage.setItem("cart",JSON.stringify(product))
+        // document.getElementsByClassName(".pay").innerText = ""
+        // document.querySelector(".totalItems").innerText = ""
+        check()
+    }
+
+    function deleterow(index){
+        product.splice(index,1)
+        localStorage.setItem("cart",JSON.stringify(product))
+        // document.getElementById("total").innerText = ""
+        check()
+    }
+
+
+
+
+
 </script>
