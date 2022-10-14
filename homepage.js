@@ -414,3 +414,9 @@ var bestSeller =
       intrvl = setInterval(animateSlider, interval);
     }
   }
+
+  document.querySelector(".logo").setAttribute("href","homepage.html")
+
+  // function homepage(){
+  //   document.createElement
+  // }

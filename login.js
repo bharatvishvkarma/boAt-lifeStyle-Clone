@@ -2,7 +2,7 @@ function displayData() {
     var keep = document.querySelector(".curser");
     keep.style.display = "grid";
     keep.style.background = "white";
-    document.querySelector(".mouse").addEventListener("mouseleave", removeData);
+    document.querySelector("body").addEventListener("mouseleave", removeData);
 }
 document.querySelector(".mouse").addEventListener("mouseover", displayData);
 
@@ -10,7 +10,7 @@ function removeData() {
     var keep = document.querySelector(".curser");
     keep.style.display = "none";
 }
-document.querySelector(".mouse").addEventListener("mouseleave", removeData);
+document.querySelector("body").addEventListener("mouseleave", removeData);
 
 document.querySelector("form").addEventListener("submit", loginfun);
 

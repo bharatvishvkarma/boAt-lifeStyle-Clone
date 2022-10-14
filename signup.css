@@ -93,20 +93,26 @@
    justify-content: center;
  }
 
+ 
+
  #container>form>input {
    width: 100%;
    margin: auto;
    margin: 10px 0px;
    height: 30px;
    border: 1px solid rgb(219, 219, 219);
-   border-radius: 5px;
+   border-radius: 25px;
    font-size: 15px;
-   padding: 0px 0px 20px 10px;
+   padding: 10px 10px 10px 20px;
  }
 
  #container>h1 {
    text-align: center;
    font-size: 38px;
+ }
+
+ input:hover{
+  background-color: rgb(209, 244, 244);
  }
 
  #container>p {
@@ -132,12 +138,20 @@
    text-align: center;
  }
 
+ #button{
+  cursor: pointer;
+ }
+
  #container>#form>p {
    width: 100%;
    font-size: 16px;
    margin: auto;
    margin-top: 20px;
    margin-bottom: 40px;
+ }
+
+ #container{
+  box-sizing: border-box;
  }
 
 
