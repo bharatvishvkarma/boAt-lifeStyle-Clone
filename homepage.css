@@ -105,9 +105,19 @@ body{
 .bestofBoat{
   font-size: 18px;
   display: flex;
+  flex-wrap: wrap;
   gap: 80px;
   align-items: baseline;
   margin-bottom: 30px;
+}
+
+.curser a{
+  text-decoration: none;
+  color: black;
+}
+
+.curser h3:hover a:hover{
+  color: rgb(1, 34, 74);
 }
 
 @media all and (max-width: 1500px) and (min-width:1135px) {
@@ -116,32 +126,26 @@ body{
       }
     }
     #header{
-      font-size: 10px;
-      position: absolute;
+
       top: 0px;
       right: 0px;
       left: 0px;
       z-index: 9999;
     }
     #header button, input{
-      font-size: 10px;
       padding: 4px 8px;
     }
 
-    .icons{
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-    }
+
 
     .items{
       display: grid;
-      grid-template-columns: repeat(5,1fr);
+      grid-template-columns: repeat(6,1fr);
       padding: 30px;
       width: 100%;
       justify-content: space-around;
       gap: 30px;
       cursor: pointer;
-    
     }
 
 
@@ -162,7 +166,6 @@ body{
           grid-template-columns: repeat(3,1fr);
         }
         #header{
-          font-size: 10px;
           position: absolute;
           top: 0px;
           right: 0px;
@@ -170,13 +173,9 @@ body{
           z-index: 9999;
         }
         #header button, input{
-          font-size: 8px;
           padding: 4px 8px;
         }
-        .icons{
-          display: grid;
-          grid-template-columns: repeat(3,1fr);
-        }
+    
         .items{
           display: grid;
           grid-template-columns: repeat(4,1fr);
@@ -187,6 +186,8 @@ body{
           cursor: pointer;
         
         }
+
+        
         
       }
       @media all and (max-width: 901px) and (min-width:500px) {
@@ -194,17 +195,20 @@ body{
           grid-template-columns: repeat(2,1fr);
         }
         #header{
-          font-size: 10px;
+          font-size: 12px;
           position: absolute;
           top: 0px;
           right: 0px;
           left: 0px;
           z-index: 9999;
+          align-items: center;
         }
         #header button, input{
-          font-size: 7px;
+          font-size: 12px;
           padding: 4px 8px;
         }
+
+    
 
         .items{
           display: grid;
@@ -215,6 +219,9 @@ body{
           gap: 20px;
           cursor: pointer;
         
+        }
+        .search{
+          display: none;
         }
         
       }
@@ -226,7 +233,6 @@ body{
         }
         #header{
           width: 100vw;
-          font-size: 5px;
           position: absolute;
           top: 0px;
           right: 0px;
@@ -234,7 +240,6 @@ body{
           z-index: 9999;
         }
         #header button, input{
-          font-size: 6px;
           padding: 4px 8px;
         }
         .items{
@@ -246,6 +251,10 @@ body{
           gap: 20px;
           cursor: pointer;
         
+        }
+
+        .search{
+          display: none;
         }
       }
       
@@ -355,12 +364,12 @@ body{
 }
 
 .icons{
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
-  width: 100%;
-  gap: 80px;
-  justify-content: center;
-  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  gap: 30px;
+  justify-content: space-between;
+  /* padding: 40px 20px; */
 }
 /* .icons img{
   width: 150px;
@@ -369,7 +378,9 @@ body{
 #footer1{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     gap: 60px;
+    justify-content: space-between;
     margin-top: 40px;
 }
 #footer1 p{
@@ -416,7 +427,7 @@ body{
 }
 .extra{
   display: flex;
-  gap: 700px;
+  justify-content: space-between;
 }
 .extra h3{
   margin-bottom: 10px;
