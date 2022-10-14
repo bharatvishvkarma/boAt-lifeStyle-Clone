@@ -28,7 +28,7 @@
                     
                     <p><i class="fa-solid fa-user"></i></p>
                     <p><i class="fa-solid fa-headset"></i></p>
-                    <p><i class="fa-solid fa-cart-shopping"></i></p>
+                    <p><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><span class="nitems"></span></a></p>
                 </div>
             </div>
             <div class="curser">
@@ -158,6 +158,7 @@
                 <button>Read More</button>
             </div>
         </div>
+        <button style='width:20px' ><a href="#Banner">^</a></button>
         <div class="blackBack">
             <p>
               India's fastest growing audio & wearables brand. The most incredible 
@@ -248,7 +249,7 @@
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter_payment_icn_2_900x_aff68517-98f4-4a82-9aee-2405cea66251_350x.png?v=1650262054" alt="">
             </div>
         
-        <button style='width:20px' ><a href="#Banner">^</a></button>
+     
     
     </body>
     
@@ -264,9 +265,22 @@
             strikedoffprice: "2990",
             saveprice: "You Save: 2191 (73%)",
             progress: '75%',
-            clickLink:'file:///C:/Users/dell/Desktop/masai%20project/headphn2.html',
+            clickLink:'headphn1.html',
             image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ed46e58c-9643-43e0-b350-9539d293aa51_600x.png?v=1625045114"
-    
+            // image_url: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/48d16e65-e295-45ef-a59d-ee85f787001d_400x.png?v=1625044995",
+            // name: "boAt Rockerz 235 V2",
+            // review: "4.8 | 1054 reviews",
+            // price: "799",
+            // strikedoffprice: "2990",
+            // saveprice: "You Save:2191 (73%)",
+            // progress: '75%',
+            // clickLink:'file:///C:/Users/dell/Desktop/masai%20project/headphn1.html',
+            // image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ed46e58c-9643-43e0-b350-9539d293aa51_600x.png?v=1625045114",
+            // img1: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ad131FIAD131TypeC_37968676-3283-4a82-aec8-7260bd2825f6_800x.jpg?v=1655462913",
+            // img2: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesR235V28hours_72x.jpg?v=1655133526",
+            // img3: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesR235V2B5.0_72x.jpg?v=1655133526",
+            // full_name: "boAt Rockerz 235 V2",
+            // category: "BLUETOOTH EARPHONES"
             }, {
             image_url: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/35ca6350-d6f3-4bc2-a742-01b2c88d80c4_700x.png?v=1625552657",
             name: "boAt Rockerz 255 Pro+",
@@ -275,7 +289,7 @@
             strikedoffprice: "3990",
             saveprice: "You Save:2791 (70%)",
             progress: '50%',
-            clickLink:'file:///C:/Users/dell/Desktop/masai%20project/headphn1.html',
+            clickLink:'headphn2.html',
             image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/93b827fc-0108-4e8b-9ea9-e66fb1e7a362_600x.png?v=1625157890"
     
             }, {
@@ -400,7 +414,7 @@
             imgLink.appendChild(newimg)
             // console.log(imgLink,newimg)
             newimg.style.display='none'
-      
+            productimg.addEventListener("click", function(){openPage(i)})
             productimg.addEventListener("mouseover",  function(){
             productimg.style.display='none'
             newimg.style.display='block'
@@ -453,6 +467,14 @@
     
         });
     }
+
+
+    var item = []
+        function openPage(index){
+          item[0] = mensData[index]
+          console.log(item)
+          localStorage.setItem("singleProduct",JSON.stringify(item[0]))
+        }
     display();
   //       var bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
   // function addtocart(el) {
@@ -502,7 +524,26 @@
             
             localStorage.setItem("cart",JSON.stringify(cartProduct))
             console.log(cartProduct)
+            var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+            
         }
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+
+
+
+
+
+
 
         function displayData(){
     var keep = document.querySelector(".curser")

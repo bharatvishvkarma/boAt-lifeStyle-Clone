@@ -28,7 +28,7 @@
                     
                     <p><i class="fa-solid fa-user"></i></p>
                     <p><i class="fa-solid fa-headset"></i></p>
-                    <p><i class="fa-solid fa-cart-shopping"></i></p>
+                    <p><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><span class="nitems"></span></a></p>
                 </div>
             </div>
             <div class="curser">
@@ -125,6 +125,7 @@
         <p>We at boAt are rooting for you and cheering the loudest for you to live a better life and get smarter with every move you make! So we designed smartwatches that are especially curated to match your stride. boAt’s smart watch price will never hurt your pocket. Get notification alerts and stay fit with the best fitness companion out there for you. Find a caring partner in boAt smartwatches that monitors your heart rate and blood oxygen SpO2 level 24*7 – even while you’re asleep. Flaunt and flash as the best smartwatches for fitness not only accompany you in your vigorous workout but also help you keep calm with guided meditation! So what are you waiting for? Live smarter with the best smart watches in town! Be the GOAT with boAt.</p>
         </div>
         </div>
+        <button style='width:20px' ><a href="#Banner">^</a></button>
         <div class="bottom">
             <div class="mbottom">
                 <div class="bottom1">
@@ -245,7 +246,7 @@
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter_payment_icn_2_900x_aff68517-98f4-4a82-9aee-2405cea66251_350x.png?v=1650262054" alt="">
             </div>
         
-        <button style='width:20px' ><a href="#Banner">^</a></button>
+        
     
     </body>
     
@@ -261,7 +262,7 @@
                 strikedoffprice: "6999",
                 saveprice: "You Save: 4191 (61%)",
                 progress: '75%',
-                clickLink:'file:///C:/Users/dell/Desktop/masai%20project/watch1.html',
+                clickLink:'watch1.html',
                 image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/blue_d8db0011-02f7-43d6-9fe7-7a71a9ed86d2_600x.png?v=1654312290"
     
             }, {
@@ -272,7 +273,7 @@
                 strikedoffprice: "5990",
                 saveprice: "You Save:3491 (70%)",
                 progress: '50%',
-                clickLink:'file:///C:/Users/dell/Desktop/masai%20project/watch2.html',
+                clickLink:'watch2.html',
                 image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/a6549acb-b075-4c3e-8ed3-9c9fcba32d42_600x.png?v=1625046216"
     
             }, {
@@ -495,10 +496,23 @@
                 cartProduct[ind].qty++
                 flag = 0
             }
-            
             localStorage.setItem("cart",JSON.stringify(cartProduct))
             console.log(cartProduct)
+            var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+            
         }
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+
 
         function displayData(){
     var keep = document.querySelector(".curser")

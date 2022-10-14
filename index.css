@@ -5,11 +5,12 @@
 
     #Banner>img{
         width:100%;
+        margin-top:90px;
     }
     #container{
 
         width: 96%;
-        height: 1600px;
+        height: 1700px;
         margin: auto;
         margin-top: 20px;
     }
@@ -28,7 +29,7 @@
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, auto);
         gap: 40px 20px;
-        /* border: 1px solid green; */
+         /* border: 5px solid green;  */
         width: 100%;
         height: 1550px;
         margin-top: 20px;
@@ -78,7 +79,8 @@
     .p {
         width: 96%;
         margin: auto;
-        margin-top:70px;
+        margin-top:50px;
+
     }
     
     .p h1 {
@@ -101,23 +103,30 @@
         margin: auto;
         width: 95%;
         display: grid;
-        margin-top: 20px;
+        /* margin-top: 20px; */
         gap: 20px;
+        /* border:2px solid red; */
         grid-template-columns: repeat(4, 1fr);
     }
     
     .mbottom {
         background-color: #e3e3e3;
         width: 90%;
-        margin-top: 20px;
-    }
+        /* margin-top: 20px; */
+        /* border: 2px solid rebeccapurple; */
+    } 
     
     .bottom1 {
+        /* border: 2px solid rebeccapurple; */
         width: 100%;
+        height: 40%;
     }
     
     .bottom1>img {
+        /* border: 2px solid rebeccapurple; */
         width: 100%;
+        height: 100%;
+
     }
     
     #read {
@@ -132,7 +141,7 @@
         margin-top: 40px;
         margin-left: 20px;
         padding: 10px;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         border-radius: 10px;
         text-decoration: underline;
         background-color: #e3e3e3;
@@ -215,6 +224,8 @@
       grid-template-columns: repeat(4,1fr);
       justify-content: space-around;
       position: absolute;
+      position: fixed;
+      
       box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     }
     .curser>div{
@@ -248,8 +259,9 @@
     
     body{
         margin: auto;
-        margin-left: 40px;
-        margin-right: 40px;
+    
+         /* margin-left: 40px;
+        margin-right: 40px;  */
     }
     a{
       text-decoration: none;
@@ -258,16 +270,17 @@
     
 
 .blackBack{
-margin-top: 40px;
+margin-top:100px; 
 background-color: black;
+padding:20px;
 }
 .blackBack p{
 color: white;
-width: 60%;
+width: 50%;
 margin: auto;
 text-align: center;
-padding: 21px 0;
-font-size: 14px;
+/* padding: 21px 0; */
+font-size:12px;
 }
 #footer1{
 display: flex;
@@ -318,9 +331,10 @@ display: flex;
 }
 .extra{
 display: flex;
-gap: 500px;
+gap:300px;
 width: 96%;
 margin: auto;
+
 
 }
 

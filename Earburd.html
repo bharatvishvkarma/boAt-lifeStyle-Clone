@@ -30,7 +30,7 @@
                     
                     <p><i class="fa-solid fa-user"></i></p>
                     <p><i class="fa-solid fa-headset"></i></p>
-                    <p><i class="fa-solid fa-cart-shopping"></i></p>
+                    <p><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><span class="nitems"></span></a></p>
                 </div>
             </div>
             <div class="curser">
@@ -156,6 +156,7 @@
                 <button>Read More</button>
             </div>
         </div>
+        <button style='width:20px' ><a href="#Banner">^</a></button>
         <div class="blackBack">
             <p>
               India's fastest growing audio & wearables brand. The most incredible 
@@ -246,7 +247,7 @@
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter_payment_icn_2_900x_aff68517-98f4-4a82-9aee-2405cea66251_350x.png?v=1650262054" alt="">
             </div>
         
-        <button style='width:20px' ><a href="#Banner">^</a></button>
+      
     </body>
     
     
@@ -261,7 +262,7 @@
             strikedoffprice: "2990",
             saveprice: "You Save: 2091 (70%)",
             progress: '75%',
-            clickLink:'file:///C:/Users/dell/Desktop/masai%20project/ear1.html',
+            clickLink:'ear1.html',
             image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/cream_600x.png?v=1642405569"
     
             }, {
@@ -272,7 +273,7 @@
             strikedoffprice: "999",
             saveprice: "You Save:2091 (70%)",
             progress: '50%',
-            clickLink:'file:///C:/Users/dell/Desktop/masai%20project/ear2.html',
+            clickLink:'ear2.html',
             image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/pink_93d7a9ed-186f-4081-a184-bad918274e7b_600x.png?v=1658994528"
     
             }, {
@@ -505,7 +506,20 @@
             
             localStorage.setItem("cart",JSON.stringify(cartProduct))
             console.log(cartProduct)
+            var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+            
         }
+    var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+    var items =  cartItems.length
+    console.log(items)
+    if(items>0){
+    document.querySelector(".nitems").innerText = items
+    }
 
         function displayData(){
     var keep = document.querySelector(".curser")

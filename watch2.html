@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+
+        }
+        .wrapper{
+            width: 90%;
+            height:100vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+        .text{
+            flex-basis: 45%;
+
+        }
+        .all-images{
+            height: 80vh;
+            display: flex;
+        }
+        .small-images{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .small-images img{
+            height: 19vh;
+            margin-bottom: 9px;
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        .small-images img:hover{
+            opacity: 1;
+        } 
+        .main-images img{
+            height: 100%;
+            margin-left: 20px;
+
+        }
+        p{
+            margin-bottom: 20px;
+        }
+        .brand{
+            background-color: #008000;
+            width: fit-content;
+            color:#fff;
+            font-size: 12px;
+            padding: 2px 5px;
+        }
+        h2{
+            font-size: 35px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .review{
+            background-color: green;
+            display: inline-block;
+            color: #fff;
+            padding: 4px;
+            border-radius: 5px;
+
+        }
+        .review .fa{
+            color:#fff;
+        }
+        .price{
+            color: red;
+            font-size: 28px;
+            font-weight: bold;
+            padding-top: 10px;
+            padding-right: 10px;
+
+        }
+        .price-box{
+              display: flex;
+              align-items: center;
+
+        }
+        input{
+            width: 30px;
+            border: 2px solid #ccc;
+            font-weight: bold;
+            text-align: center;
+            
+        }
+        button{
+            width: 140px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            border: 0;
+            border-radius: 5px;
+            background-color: #fe980f;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        button .fa{
+            margin-right: 10px;
+        }
+        .buy{
+            background-color: rgb(201,97,57);
+        }
+
+
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="wrapper">
+        <div class="product-box">
+            <div class="all-images">
+
+            <div class="small-images">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/a6549acb-b075-4c3e-8ed3-9c9fcba32d42_600x.png?v=1625046216" onclick="clickimg(this)">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1bca7fb9-5f5c-42e3-930a-8a430d8a9e60_600x.png?v=1625046217" onclick="clickimg(this)">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/8f01d1e9-48f4-4e55-886d-0b255b9bbf24_600x.png?v=1625045855" onclick="clickimg(this)">
+                     </div>
+            <div class="main-images">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/e7910a39-186a-41f6-ac57-fc3e84108104_600x.png?v=1625045106" id="imagebox">
+            </div>
+            </div>
+        </div>
+        <div class="text">
+            <div class="content">
+                <p class="brand">Brand:boAt</p>
+                <h2>boAt Storm Smart Watches with Full-Touch 33mm Curved Color Display, SpO2 Sensor and 8 Active Sports Mode</h2>
+                <div class="review">
+                    <span>(4.9)</span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="pricebox">
+                    <p class="price">&#8377;2,499</p>
+                   <s>&#8377; 5,999</s>
+                </div>
+               
+                <button>
+                    <span class="fa fa-shopping-cart"></span>
+                    Add to Cart
+                </button>
+                <button class="buy">
+                    <span class="fa fa-shopping-cart"></span>
+                    Buy now
+                </button>
+            </div>
+        </div>
+    </div>
+   </div> 
+</body>
+</html>
+<script>
+    function clickimg(smallImg)
+    {
+        var fullImg=document.getElementById("imagebox");
+        fullImg.src=smallImg.src;
+    }
+</script>

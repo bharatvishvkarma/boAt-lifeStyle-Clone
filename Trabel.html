@@ -28,7 +28,7 @@
                     
                     <p><i class="fa-solid fa-user"></i></p>
                     <p><i class="fa-solid fa-headset"></i></p>
-                    <p><i class="fa-solid fa-cart-shopping"></i></p>
+                    <p><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><span class="nitems"></span></a></p>
                 </div>
             </div>
             <div class="curser">
@@ -80,7 +80,7 @@
 
 
 
-                      </div>
+           </div>
           </div>
         
     
@@ -88,7 +88,7 @@
            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Trebel_Category_Web.jpg?v=1634903645" alt="">
         </div>
         <div id="container">
-            <h1>Smart Watches</h1>
+            <h1>TRebel</h1>
             <div class="filter">
               <div>
                   <select id="sortName" onchange="NameSort()">
@@ -151,6 +151,7 @@
                 <button>Read More</button>
             </div>
         </div>
+        <button style='width:20px' ><a href="#Banner">^</a></button>
         <div class="blackBack">
             <p>
               India's fastest growing audio & wearables brand. The most incredible 
@@ -241,7 +242,7 @@
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter_payment_icn_2_900x_aff68517-98f4-4a82-9aee-2405cea66251_350x.png?v=1650262054" alt="">
             </div>
         </div>
-        <button style='width:20px' ><a href="#Banner">^</a></button>
+      
     
     </body>
     
@@ -257,7 +258,7 @@
                 strikedoffprice: "6999",
                 saveprice: "You Save:4191 (61%)",
                 progress: '75%',
-                clickLink:'file:///C:/Users/dell/Desktop/masai%20project/tribal1.html',
+                clickLink:'tribal1.html',
                 image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main3.3_9198fbdb-47fc-4ba1-878f-10d3acdb3d9c_600x.png?v=1646394746"
     
             }, {
@@ -268,7 +269,7 @@
                 strikedoffprice: "4990",
                 saveprice: "You Save:3491 (70%)",
                 progress: '50%',
-                clickLink:'file:///C:/Users/dell/Desktop/masai%20project/tribal2.html',
+                clickLink:'tribal2.html',
                 image_new: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/airdopes-381-pink_9a1088cc-2e91-4acb-9d7c-841033532bfe_600x.png?v=1615468286"
             }, {
                 image_url: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main1_35ad08a3-ed67-4b87-b7a6-e4d8ae22847d_600x.png?v=1646391225",
@@ -484,7 +485,21 @@
             
             localStorage.setItem("cart",JSON.stringify(cartProduct))
             console.log(cartProduct)
+            var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+            
         }
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || []
+             var items =  cartItems.length
+              console.log(items)
+             if(items>0){
+             document.querySelector(".nitems").innerText = items
+               }
+
 
         function displayData(){
     var keep = document.querySelector(".curser")
