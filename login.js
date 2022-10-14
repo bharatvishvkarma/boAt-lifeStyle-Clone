@@ -33,7 +33,7 @@ function loginfun() {
     });
     if (validuser) {
         alert("Login successfully");
-        location.href = "";
+        location.href = "homepage.html";
     } else if (usernotallowed) {
         alert("Incorrect email or password.");
         document.getElementById("email").value = "";
