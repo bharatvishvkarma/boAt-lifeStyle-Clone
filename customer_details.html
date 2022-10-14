@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="customer_details.css">
-    <link rel="stylesheet" href="buynow.html">
 </head>
 <body>
     <div id="main">
@@ -42,7 +41,7 @@
                     <label id="email" for="">Pincode*</label><br>
                     <input id="mail" type="text"><br>
                     <label id="pincode" for="">E-mail*</label><br>
-                    <input id="pin" type="number"><br>
+                    <input id="pin" type="email"><br>
                     <label id="state" for="">State*</label><br>
                     <input id="stateinput" type="text" required><br>
                 </div>
@@ -55,7 +54,7 @@
             </div>
 
             <div id="button"> 
-                <button id="continue">Continue</button>
+                <a href="payment.html"><button id="continue">Continue</button></a>
             </div>
             <p id="condition">T&C | Privacy | 991899db</p>
             
@@ -82,15 +81,15 @@
                         </div>
 
                         <div id="textdetailes">
-                            <p t>₹899.00</p>
-                            <p>-₹0.00</p>
+                            <p class="totalPrice" ></p>
+                            <p class="cd"></p>
                             <p>Free</p>
                         </div>
                         <hr id="hr">
                     </div>
                         <div id="ordredetails">
-                            <h4 id="text">To Pay </h4>
-                            <h4 id="textdetailes">₹899.00 </h4>
+                            <h4 id="text">Total Amount </h4>
+                            <h4 id="textdetaile"></h4>
                         </div>
             </div>
         </div>
@@ -111,3 +110,43 @@
 
 </body>
 </html>
+
+<script>
+
+var tp = 0
+var allitems = JSON.parse(localStorage.getItem("cart")) || []
+function totalPrice(){
+    var tprice = allitems.reduce(function(acc,elem){
+        return acc + +(elem.price*elem.qty)
+    },0)
+    tp = tprice
+    console.log(tprice)
+    document.querySelector(".totalPrice").innerHTML = "₹"+ tprice
+    document.querySelector("#textdetaile").innerHTML = "₹" + tprice
+    document.querySelector(".cd").innerHTML = 0
+    localStorage.setItem("dPrice",tprice)
+}
+totalPrice()
+
+document.getElementById("apply").addEventListener("click",coupenApply)
+function coupenApply(){
+    
+    if(document.getElementById("code").value != "masai123")
+    {
+        alert("coupen is not valid")
+    }
+    else{
+        alert("Coupen Apply | Congratulations!! you get 20% off")
+        var discPrice = parseInt(tp* 0.8) 
+        var savingprice = parseInt(tp*0.2)
+        document.querySelector(".totalPrice").innerHTML = "₹"+ tp
+        document.getElementById("textdetaile").innerHTML = "₹"+ discPrice
+        document.querySelector(".cd").innerHTML = "20% OFF (You save ₹"  + savingprice + ")"
+        document.getElementById("code").value = ""
+        discountPrice = discPrice
+        localStorage.setItem("dPrice",discPrice)
+
+    }
+}
+
+</script>

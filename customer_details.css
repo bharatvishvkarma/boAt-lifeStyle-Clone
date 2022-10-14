@@ -32,6 +32,11 @@
     height: 50px;
 }
 
+#continue:hover{
+    background-color: rgb(1, 65, 65);
+
+}
+
 #image>img {
     width: 70px;
     height: 30px;
@@ -135,6 +140,7 @@
     border-radius: 10px;
     padding: 0;
     font-size: 18px;
+    cursor: pointer;
 }
 
 #condition {
@@ -148,6 +154,11 @@
     width: 36%;
     margin: 10px 0px;
     margin-left: 2%;
+}
+
+button:hover{
+    background-color: rgb(1, 65, 65);
+    cursor: pointer;
 }
 
 #carticon {
@@ -186,13 +197,15 @@
 #textdetailes {
     text-align: end;
     margin-right: 10px;
-    margin-top: -5px;
+
 }
 
-#text {
+#text, #textdetaile {
     text-align: start;
     margin-left: 10px;
-    margin-top: -5px;
+    margin-top: 0;
+    padding-right: 10px;
+
 }
 
 #productdetails {
